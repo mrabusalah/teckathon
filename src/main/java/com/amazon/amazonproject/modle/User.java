@@ -16,7 +16,7 @@ public class User {
     private String lastName;
     private String email;
     private String phone;
-    private Address address;
+    private String country;
     @Enumerated(EnumType.STRING)
     private Role role;
 }
