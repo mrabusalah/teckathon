@@ -2,6 +2,7 @@ package com.amazon.amazonproject.services;
 
 import com.amazon.amazonproject.modle.User;
 import com.amazon.amazonproject.repositories.UserRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,4 +39,16 @@ public class UserService {
     private boolean isExist(User user) {
         return userRepository.existsById(user.getId());
     }
+
+    public boolean checkUserCredential(User user) {
+        Optional<User> fetchedUser = userRepository.getUserByUsername(user.getUsername());
+        if(isExist(fetchedUser.get())){
+            String username = user.getUsername();
+            String password = user.getPassword();
+            return (username.equals(fetchedUser.get().getUsername()) &&
+                    password.equals(fetchedUser.get().getPassword()));
+        }
+        return false;
+    }
+
 }

@@ -40,4 +40,11 @@ public class UserController {
     public User updateExistUser(@RequestBody User user){
         return userService.updateExistUser(user);
     }
+
+    @PostMapping("/login")
+    public boolean checkUserCredential(@RequestBody User user) {
+        return userService.checkUserCredential(user);
+    }
+
+
 }
