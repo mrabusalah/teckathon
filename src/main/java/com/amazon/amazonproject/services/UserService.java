@@ -5,6 +5,7 @@ import com.amazon.amazonproject.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -37,5 +38,23 @@ public class UserService {
 
     private boolean isExist(User user) {
         return userRepository.existsById(user.getId());
+    }
+
+    public boolean loginCheck(Map<String, String> login) {
+        String username = login.get("username");
+        if (isUsernameExist(username)) {
+            User user = userRepository.getUserByUsername(username).get();
+            String password = login.get("password");
+            return isOk(user, password);
+        }
+        return false;
+    }
+
+    private boolean isOk(User user, String password) {
+        return password.equals(user.getPassword());
+    }
+
+    private boolean isUsernameExist(String username) {
+        return userRepository.existsByUsername(username);
     }
 }
