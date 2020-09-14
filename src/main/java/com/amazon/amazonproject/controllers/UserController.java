@@ -4,6 +4,7 @@ import com.amazon.amazonproject.modle.User;
 import com.amazon.amazonproject.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,8 +20,9 @@ public class UserController {
     }
 
 
-    @GetMapping("")
+    @GetMapping
     public List<User> getAllUsers() {
+        System.out.println("hi");
         return userService.getAllUsers();
     }
 
@@ -29,8 +31,8 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    @PostMapping("")
-    public User addNewUser(@RequestBody User user) {
+    @PostMapping
+    public User addNewUser(@Valid @RequestBody User user) {
         System.out.println(user);
         return userService.addNewUser(user);
     }
