@@ -40,16 +40,4 @@ public class UserController {
         return userService.updateExistUser(user);
     }
 
-
-    /*
-
-        it should parse by body request but we don't have time for that , also we know that we must use SpringSecurity for login check
-        but we make it accept it as is just to for sample
-
-     */
-    @PostMapping("/login/{username}/{password}")
-    public User loginCheck(@PathVariable String username, @PathVariable String password) {
-        return userService.loginCheck(username, password);
-    }
-
 }
