@@ -5,7 +5,6 @@ import com.amazon.amazonproject.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -40,14 +39,12 @@ public class UserService {
         return userRepository.existsById(user.getId());
     }
 
-    public boolean loginCheck(Map<String, String> login) {
-        String username = login.get("username");
+    public User loginCheck(String username, String password) {
         if (isUsernameExist(username)) {
-            User user = userRepository.getUserByUsername(username).get();
-            String password = login.get("password");
-            return isOk(user, password);
+            User user = userRepository.findUserByUsername(username);
+            return isOk(user, password) ? user : null;
         }
-        return false;
+        throw new NullPointerException("username not found");
     }
 
     private boolean isOk(User user, String password) {

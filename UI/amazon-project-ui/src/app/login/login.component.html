@@ -6,19 +6,18 @@
   </div>
   <div class="col-lg-6 col-sm-12 home-login h-100 d-flex justify-content-center align-items-center">
     <div>
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>INFO!</strong> username : admin / password : @dmin
+      <div class="alert {{alertType}} alert-dismissible fade show text-center" role="alert">
+        <strong>{{alertTitle}}</strong> {{alertContent}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="form-inline">
+      <form class="form-inline" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group mb-2">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                 placeholder="Enter email">
+          <input type="text" [name]="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                 placeholder="Enter username">
         </div>
         <div class="form-group mx-sm-3 mb-2">
-          <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+          <input type="password" [name]="password" class="form-control" id="inputPassword2" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Go !</button>
       </form>

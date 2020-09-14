@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -33,19 +32,12 @@ public class UserController {
 
     @PostMapping
     public User addNewUser(@Valid @RequestBody User user) {
-        System.out.println(user);
         return userService.addNewUser(user);
     }
 
     @PutMapping
-    public User updateExistUser(@RequestBody User user){
+    public User updateExistUser(@RequestBody User user) {
         return userService.updateExistUser(user);
-    }
-
-
-    @PostMapping("/login")
-    public boolean loginCheck(@RequestBody Map<String,String> login){
-        return userService.loginCheck(login);
     }
 
 }
