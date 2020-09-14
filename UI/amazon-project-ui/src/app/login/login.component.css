@@ -1,0 +1,25 @@
+.root {
+  width: 100%;
+  height: 100vh;
+}
+
+.home-image-bg {
+  border: solid #f6981c;
+  border-width: 0 3px 0 0;
+  padding: 0 !important;
+  margin: 0;
+  background-image: url('src/assets/images/what-is-human-in-the-loop.png');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.home-login {
+  padding: 0;
+  margin: 0;
+}
+
+.home-image-bg h1 {
+  color: #f6981c;
+  font-size: 100px;
+  font-weight: 100 !important;
+}
