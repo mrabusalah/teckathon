@@ -29,6 +29,13 @@ public class UserService {
     }
 
     public User updateExistUser(User user) {
-        return userRepository.save(user);
+        if (isExist(user)) {
+            return userRepository.save(user);
+        }
+        return addNewUser(user);
+    }
+
+    private boolean isExist(User user) {
+        return userRepository.existsById(user.getId());
     }
 }
