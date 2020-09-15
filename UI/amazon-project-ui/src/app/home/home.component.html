@@ -36,18 +36,17 @@
 
   </nav>
 
+  <!-- Page Content  -->
   <div id="content" class="p-4 p-md-5 pt-5 lectures">
     <h2 class="mb-4">Lectures</h2>
     <div class="row">
       <div class="col-4" *ngFor="let material of materials">
-        <div class="card">
-          <video class="img-fluid" playsinline autoplay muted loop>
-            <source src="{{material.materialLink}}" type="video/mp4">
-          </video>
+        <div class="card text-center">
+          <img class="card-img-top" src="{{material.materialThumbnail}}" alt="Card image cap">
           <div class="card-body">
-            <h4 class="card-title">{{material.materialTitle}}</h4>
-            <p class="card-text">{{material.materialDescription}}</p>
-            <a href="#" class="btn btn-primary">Button</a>
+            <h5 class="card-title">{{material.materialTitle}}</h5>
+            <p>{{material.materialDescription}}</p>
+            <a href="/material/{{material.id}}" class="btn btn-primary">Go to course</a>
           </div>
         </div>
       </div>

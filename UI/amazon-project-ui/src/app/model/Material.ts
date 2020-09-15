@@ -4,4 +4,5 @@ export class Material {
   materialLink: string;
   materialTitle: string;
   materialDescription: string;
+  materialThumbnail: string;
 }

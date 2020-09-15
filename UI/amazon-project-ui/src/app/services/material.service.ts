@@ -16,4 +16,8 @@ export class MaterialService {
   getAllMaterials(): Observable<any> {
     return this.http.get(this.baseUrl);
   }
+
+  getMaterialById(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + `/` + id);
+  }
 }
