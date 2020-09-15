@@ -32,12 +32,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("abusalah username" + this.loginForm.value.username);
+
     this.userService.userLogin(
-      // this.loginForm.value.username,
-      // this.loginForm.value.password
-      "mrabusala1h",
-      "hi"
+      this.loginForm.value.username,
+      this.loginForm.value.password
     ).subscribe(res => {
 
       localStorage.setItem('access_token', res.access_token);
@@ -53,15 +51,13 @@ export class LoginComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       });
-      console.log("hello abusalah");
-      this.router.navigate([``]);
+
+      this.router.navigate([`/home`]);
     }, error => {
       this.alertType = "alert-danger";
       this.alertTitle = "WRONG ! ";
       this.alertContent = "enter the correct username and password please";
       console.log(error);
     })
-
   }
-
 }
