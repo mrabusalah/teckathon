@@ -10,6 +10,7 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TokenInterceptorService} from "./services/token-interceptor.service";
 import { HomeComponent } from './home/home.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HomeComponent } from './home/home.component';
     SweetAlert2Module,
     HttpClientModule,
     ReactiveFormsModule,
+    RouterModule,
     FormsModule
   ],
   providers: [HttpClient,

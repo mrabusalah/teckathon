@@ -13,6 +13,8 @@ public class Material {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String MaterialLink;
+    private String materialLink;
     private Long creatorId;
+    private String materialTitle;
+    private String materialDescription;
 }
