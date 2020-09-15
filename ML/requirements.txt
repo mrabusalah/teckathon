@@ -1,0 +1,8 @@
+numpy
+opencv-python
+dlib
+sklearn
+tensorflow
+keras
+screeninfo
+imutils
