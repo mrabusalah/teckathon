@@ -11,13 +11,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TokenInterceptorService} from "./services/token-interceptor.service";
 import { HomeComponent } from './home/home.component';
 import {RouterModule} from "@angular/router";
+import { MaterialComponent } from './material/material.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    MaterialComponent
   ],
   imports: [
     BrowserModule,

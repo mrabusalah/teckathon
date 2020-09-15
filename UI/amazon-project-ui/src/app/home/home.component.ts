@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MaterialService} from "../services/material.service";
 import {Material} from "../model/Material";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
   username: string;
   materials: Material[];
 
-  constructor(private materialService: MaterialService) {
+  constructor(private materialService: MaterialService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -23,4 +24,5 @@ export class HomeComponent implements OnInit {
       console.log(error);
     });
   }
+
 }

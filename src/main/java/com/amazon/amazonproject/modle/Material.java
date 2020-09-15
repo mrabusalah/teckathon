@@ -17,4 +17,5 @@ public class Material {
     private Long creatorId;
     private String materialTitle;
     private String materialDescription;
+    private String materialThumbnail;
 }
