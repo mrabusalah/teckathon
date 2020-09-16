@@ -35,4 +35,8 @@ export class MaterialComponent implements OnInit {
   ngOnInit(): void {
     this.material = new Material();
   }
+
+  goHome() {
+    this.router.navigate(['/home']);
+  }
 }

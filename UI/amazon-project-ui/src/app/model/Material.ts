@@ -5,4 +5,5 @@ export class Material {
   materialTitle: string;
   materialDescription: string;
   materialThumbnail: string;
+  creatingDate: string;
 }
