@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         position: 'center',
         icon: 'success',
         title: 'Your are login now ',
-        footer: 'Welcome Back ' + this.username,
+        footer: 'Welcome Back ' + this.loginForm.value.username,
         showConfirmButton: false,
         timer: 2000
       });

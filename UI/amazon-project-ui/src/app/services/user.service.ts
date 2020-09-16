@@ -13,6 +13,10 @@ export class UserService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
+  gerUserById(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + `/` + id);
+  }
+
   userLogin(username: string, password: string): Observable<any> {
     const headers = {
       headers: new HttpHeaders({

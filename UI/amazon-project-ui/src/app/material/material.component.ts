@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Material} from "../model/Material";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {MaterialService} from "../services/material.service";
+import {User} from "../model/User";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-material',
@@ -10,18 +12,22 @@ import {MaterialService} from "../services/material.service";
 })
 export class MaterialComponent implements OnInit {
 
+  user: User;
   material: Material;
   id: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private materialService: MaterialService) {
+              private materialService: MaterialService,
+              private userService: UserService) {
     this.route.paramMap.subscribe((param: ParamMap) => {
       this.id = +param.get('id');
-
       this.materialService.getMaterialById(this.id)
         .subscribe(data => {
           this.material = data;
+          this.userService.gerUserById(this.material.creatorId).subscribe(res => {
+            this.user = res;
+          }, error => console.log(error));
         }, error => console.log(error));
     });
   }
@@ -29,5 +35,4 @@ export class MaterialComponent implements OnInit {
   ngOnInit(): void {
     this.material = new Material();
   }
-
 }
