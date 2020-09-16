@@ -95,5 +95,11 @@ or if you want to use it with your video cam
 python3 detect.py <camera_index>
 ```
 
+
+### Chart on profile
+
+it's present a percentage of attention and inattention of student during the time
+
+
 note : if you face any problem during the installation please feel free to contact us
 
