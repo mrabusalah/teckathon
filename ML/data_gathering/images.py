@@ -231,14 +231,14 @@ for face in faces:
 
 #if a face is not detected then fill the data with zeros
 if face_detected and focus == 1:
-    with open( "csv/data.csv", 'a', newline='') as output_file:
+    with open( "csv/data2.csv", 'a', newline='') as output_file:
         thewriter = csv.DictWriter(output_file, fieldnames=keys, quoting=csv.QUOTE_NONE, escapechar=' ')
         thewriter.writerow(data)
 elif focus == 0:
     for key in keys:
         data[key] = 0
     data['focus'] = 0
-    with open( "csv/data.csv", 'a', newline='') as output_file:
+    with open( "csv/data2.csv", 'a', newline='') as output_file:
         thewriter = csv.DictWriter(output_file, fieldnames=keys, quoting=csv.QUOTE_NONE, escapechar=' ')
         thewriter.writerow(data)
 

@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from joblib import dump, load
 
-model_name = "model_v6.032c"
+model_name = "model_v6.12d"
 pkl_filename = f"models/{model_name}.pkl"
 with open(pkl_filename, 'rb') as file:
     pickle_model = pickle.load(file)

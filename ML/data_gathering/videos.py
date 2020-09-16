@@ -242,11 +242,11 @@ while True:
         for key in keys:
             data[key] = 0
         data['focus'] = 0
-        with open( "csv/data.csv", 'a', newline='') as output_file:
+        with open( "csv/data3.csv", 'a', newline='') as output_file:
             thewriter = csv.DictWriter(output_file, fieldnames=keys, quoting=csv.QUOTE_NONE, escapechar=' ')
             thewriter.writerow(data)
     elif focus == 0:
-        with open( "csv/data.csv", 'a', newline='') as output_file:
+        with open( "csv/data3.csv", 'a', newline='') as output_file:
             thewriter = csv.DictWriter(output_file, fieldnames=keys, quoting=csv.QUOTE_NONE, escapechar=' ')
             thewriter.writerow(data)
     cv2.imshow("frame", frame)

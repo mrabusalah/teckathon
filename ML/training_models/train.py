@@ -26,7 +26,7 @@ model = LogisticRegression(
     solver='liblinear', 
     tol=0.0001,)
 model.fit(train_x, train_y)
-pkl_filename = "models/model_v6.032c.pkl"
+pkl_filename = "models/model_v6.12d.pkl"
 with open(pkl_filename, 'wb') as file:
     pickle.dump(model, file)
 predictions = model.predict(val_x)
