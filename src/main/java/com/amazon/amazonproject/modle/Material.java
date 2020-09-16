@@ -2,10 +2,8 @@ package com.amazon.amazonproject.modle;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -18,4 +16,10 @@ public class Material {
     private String materialTitle;
     private String materialDescription;
     private String materialThumbnail;
+    private LocalDateTime creatingDate;
+
+    @PrePersist
+    public void prePersist() {
+        this.creatingDate = LocalDateTime.now();
+    }
 }
