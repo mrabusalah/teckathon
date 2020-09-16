@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MaterialService} from "../services/material.service";
 import {Material} from "../model/Material";
-import {Router} from "@angular/router";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   username: string;
   materials: Material[];
 
-  constructor(private materialService: MaterialService, private router: Router) {
+  constructor(private materialService: MaterialService, private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -23,6 +23,10 @@ export class HomeComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  logout() {
+    this.userService.userLogout();
   }
 
 }
