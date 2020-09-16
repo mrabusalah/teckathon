@@ -2,11 +2,9 @@
 
 FutureAmazonians team consists of 3 students :
 
-    - [`Abdullah A. AbuSalah`](https://github.com/mrabusalah)
-    
-    - [`Fuad A. Daoud`](https://github.com/Fox-Immortal)
-    
-    - [`Yousef R. Hammad`](https://github.com/youhammad)
+    [Abdullah A. AbuSalah] (https://github.com/mrabusalah)
+    [Fuad A. Daoud] (https://github.com/Fox-Immortal)
+    [Yousef R. Hammad] (https://github.com/youhammad)
     
 
 # Project Name
