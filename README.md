@@ -2,9 +2,11 @@
 
 FutureAmazonians team consists of 3 students :
 
-    [Abdullah A. AbuSalah] (https://github.com/mrabusalah)
-    [Fuad A. Daoud] (https://github.com/Fox-Immortal)
-    [Yousef R. Hammad] (https://github.com/youhammad)
+   - [Abdullah A. AbuSalah](https://github.com/mrabusalah)
+    
+   - [Fuad A. Daoud](https://github.com/Fox-Immortal)
+    
+   - [Yousef R. Hammad](https://github.com/youhammad)
     
 
 # Project Name
@@ -72,6 +74,25 @@ we used alot of pyhton libs
 now go to your browser and open this link
 ```sh
 http://localhost:4200
+```
+
+### To run the machine learning part:
+run in the ML dir
+
+```python3
+pip3 install -r requirements
+```
+
+then place your video in the training_models dir and run:
+
+```python3
+python3 detect.py <video_name>
+```
+
+or if you want to use it with your video cam
+
+```python3
+python3 detect.py <camera_index>
 ```
 
 note : if you face any problem during the installation please feel free to contact us
