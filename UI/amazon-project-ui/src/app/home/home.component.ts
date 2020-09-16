@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MaterialService} from "../services/material.service";
 import {Material} from "../model/Material";
 import {UserService} from "../services/user.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,24 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
-    this.userService.userLogout();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#f6981c',
+      confirmButtonText: 'Yes, logout!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.userLogout();
+        Swal.fire(
+          'DONE!',
+          'LOGGED OUT SUCCESSFULLY.',
+          'success'
+        )
+      }
+    })
   }
 
 }
