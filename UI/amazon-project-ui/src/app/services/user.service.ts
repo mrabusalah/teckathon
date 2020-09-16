@@ -17,6 +17,10 @@ export class UserService {
     return this.http.get(this.baseUrl + `/` + id);
   }
 
+  gerUserByUsername(username: string): Observable<any> {
+    return this.http.get(this.baseUrl + `/settings/` + username);
+  }
+
   userLogin(username: string, password: string): Observable<any> {
     const headers = {
       headers: new HttpHeaders({
@@ -36,5 +40,4 @@ export class UserService {
   loggedIn() {
     return !!localStorage.getItem('access_token');
   }
-
 }

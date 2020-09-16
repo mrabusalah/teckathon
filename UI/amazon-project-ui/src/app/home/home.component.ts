@@ -3,6 +3,8 @@ import {MaterialService} from "../services/material.service";
 import {Material} from "../model/Material";
 import {UserService} from "../services/user.service";
 import Swal from "sweetalert2";
+import {Router} from "@angular/router";
+import {User} from "../model/User";
 
 @Component({
   selector: 'app-home',
@@ -12,15 +14,21 @@ import Swal from "sweetalert2";
 export class HomeComponent implements OnInit {
   username: string;
   materials: Material[];
+  user: User;
 
-  constructor(private materialService: MaterialService, private userService: UserService) {
+  constructor(private materialService: MaterialService,
+              private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
+    this.user = new User();
     this.username = localStorage.getItem("username");
     this.materialService.getAllMaterials().subscribe(res => {
       this.materials = res;
-      console.log(this.materials);
+      this.userService.gerUserByUsername(this.username).subscribe(data => {
+        this.user = data;
+      });
     }, error => {
       console.log(error);
     });
@@ -47,4 +55,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  profile(username: string) {
+    this.router.navigate(['profile', username]);
+  }
 }

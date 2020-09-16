@@ -1,0 +1,42 @@
+<main>
+  <div class="container">
+    <div class="img"
+         style="background-image: linear-gradient(150deg, rgba(63, 174, 255, .3)15%, rgba(63, 174, 255, .3)70%, rgba(63, 174, 255, .3)94%), url(https://m.media-amazon.com/images/G/40/jordan-hackathon/images/header.png);height: 350px;background-size: cover;"></div>
+    <div class="card social-prof">
+      <div class="card-body">
+        <div class="wrapper">
+          <img
+            src="{{user.profilePic}}"
+            alt="" class="user-profile">
+          <h3 class="text-info">{{user.username}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card text-white text-center bg-info mb-3">
+          <div class="card-header"><h3>User Info</h3></div>
+          <div class="card-body">
+            <p class="card-text"><strong>Username : </strong>{{user.username}}</p>
+            <p class="card-text"><strong>Name : </strong>{{user.firstName}} {{user.middleName}} {{user.lastName}}</p>
+            <p class="card-text"><strong>Phone : </strong>{{user.phone}}</p>
+            <p class="card-text"><strong>Email : </strong>{{user.email}}</p>
+            <p class="card-text"><strong>Country : </strong>{{user.country}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div style="width: 100%;">
+          <canvas
+            baseChart
+            [chartType]="'line'"
+            [datasets]="chartData"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [legend]="true">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

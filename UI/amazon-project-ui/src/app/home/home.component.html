@@ -6,7 +6,9 @@
     </div>
     <div class="img menuBg bg-wrap text-center py-4">
       <div class="user-logo">
-        <div class="img logoImg"></div>
+        <div class="img logoImg">
+          <img src="{{user.profilePic}}" alt="user profile picture">
+        </div>
         <h3>{{username}}</h3>
       </div>
     </div>
@@ -15,19 +17,7 @@
         <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
       </li>
       <li>
-        <a href="#"><span class="fa fa-download mr-3"></span> Download</a>
-      </li>
-      <li>
-        <a href="#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
-      </li>
-      <li>
-        <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
-      </li>
-      <li>
-        <a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
-      </li>
-      <li>
-        <a href="#"><span class="fa fa-support mr-3"></span> Support</a>
+        <a (click)="profile(username)"><span class="fa fa-user mr-3"></span> Profile</a>
       </li>
       <li>
         <a (click)="logout()"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
