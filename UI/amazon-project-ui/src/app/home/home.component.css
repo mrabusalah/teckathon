@@ -1,5 +1,6 @@
-.logoImg {
-  background-image: url('src/assets/images/logo.jpg');
+.logoImg img {
+  width: 100px;
+  border-radius: 50%;
 }
 
 .menuBg {

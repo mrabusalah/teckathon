@@ -5,11 +5,13 @@
     <div class="alert alert-primary" role="alert">
       <span><i class="fa fa-book text-dark"></i></span> Material title : {{material.materialTitle}}  | <span><i
       class="fa fa-user text-dark"></i></span> Author
-      : {{user.firstName}}   | <span><i class="fa fa-calendar text-dark"></i></span> Date : {{material.creatingDate}}
+      : {{user.firstName}}   | <span><i class="fa fa-calendar text-dark"></i></span> Date
+      : {{material.creatingDate.substring(0, 10)}} / {{material.creatingDate.substring(11)}}
     </div>
 
+    <p>{{material.materialDescription}}</p>
     <div class="embed-responsive embed-responsive-16by9">
-      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KSKJKLmAqpI" allowfullscreen></iframe>
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/pQN-pnXPaVg" allowfullscreen></iframe>
     </div>
   </div>
   <br>
@@ -18,4 +20,3 @@
   <br>
   <br>
 </div>
-

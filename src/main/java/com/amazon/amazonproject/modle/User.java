@@ -22,6 +22,7 @@ public class User implements UserDetails {
     private String country;
     private String username;
     private String password;
+    private String profilePic;
     @Enumerated(EnumType.STRING)
     private Role role;
 

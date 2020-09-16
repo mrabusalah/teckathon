@@ -30,6 +30,11 @@ public class UserController {
         return userService.getUserById(id);
     }
 
+    @GetMapping("/settings/{username}")
+    public User getUserWithId(@PathVariable String username) {
+        return userService.getUserByUsername(username);
+    }
+
     @PostMapping
     public User addNewUser(@Valid @RequestBody User user) {
         return userService.addNewUser(user);
