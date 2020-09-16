@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   username: string;
   password: string;
-  alertType = "alert-success";
+  alertType = "alert-primary";
   alertTitle = "INFO ! ";
   alertContent = "username : mrabusalah / password : root";
 
