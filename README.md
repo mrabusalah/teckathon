@@ -1,9 +1,13 @@
 # Facial Features to Measure student's Attention
 
 FutureAmazonians team consists of 3 students :
+
     - [`Abdullah A. AbuSalah`](https://github.com/mrabusalah)
+    
     - [`Fuad A. Daoud`](https://github.com/Fox-Immortal)
+    
     - [`Yousef R. Hammad`](https://github.com/youhammad)
+    
 
 # Project Name
 
@@ -71,4 +75,6 @@ now go to your browser and open this link
 ```sh
 http://localhost:4200
 ```
+
+note : if you face any problem during the installation please feel free to contact us
 
