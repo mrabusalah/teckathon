@@ -1,3 +1,4 @@
+#In case you don't want a window to show up just comment the line 316
 import cv2
 import dlib
 import csv
@@ -37,20 +38,45 @@ features = list("face_left,face_top,face_right,face_bottom,jawline_0_x,jawline_0
 data = {}
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("trained_models/shape_predictor_68_face_landmarks.dat")
-
-cap = cv2.VideoCapture(0)
+input = sys.argv[1]
+if input == "1" or input == "0":
+    input = int(input)
+cap = cv2.VideoCapture(input)
 fps = cap.get(cv2.CAP_PROP_FPS) 
 fps = math.ceil(fps)
 curr_frame = 0
 
 pre = {}
 pre['frame'] = []
-pre['second'] = []
+pre['minutes'] = []
 focus_counter = 0
 focus_pre = 0
 seconds = 0
-
+minutes = 0
 face_detected = False
+print(
+    """
+
+
+
+
+
+
+    [#]============================================================[#]
+    [#]'########::::'###::::::::::::::::'###::::'##::::'##::'######[#]
+    [#]##.....::::'## ##::::::::::::::'## ##::: ###::'###:'##... #:[#]
+    [#]##::::::::'##:. ##::::::::::::'##:. ##:: ####'####: ##:::.:.[#]
+    [#]######:::'##:::. ##:'#######:'##:::. ##: ## ### ##:. ######:[#]
+    [#]##...:::: #########:........: #########: ##. #: ##::..... #:[#]
+    [#]##::::::: ##.... ##:::::::::: ##.... ##: ##:.:: ##:'##::: #:[#]
+    [#]##::::::: ##:::: ##:::::::::: ##:::: ##: ##:::: ##:. ######:[#]
+    [#]..::::::::..:::::..:::::::::::..:::::..::..:::::..:::......:[#]
+    [#]============================================================[#]
+
+
+    -----------------------------------------------------
+    |#Time\t\t#Precentage\t#Prediction\t|""")
+    #Future Amazonains - Attention Measure System
 while True:
     res, frame = cap.read()
     if not res:
@@ -61,12 +87,22 @@ while True:
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = detector(gray)
     if curr_frame % fps == 0:
-        print(f"{seconds} : {focus_counter / fps * 100}%")
-        pre['second'].append({seconds:focus_counter / fps})
-        with open("JSON/predictions.json", "w") as write_file:
+        seconds += 1
+    if seconds % 60 == 0:
+        foc = int(focus_counter / fps * 100)        
+        print(
+            f"""
+    -----------------------------------------------------
+    |#{minutes}\r\t\t\t#{foc}%\t\t#{'Yes' if foc > 50 else 'Nope'}\r\t\t\t\t\t\t\t|"""
+        )
+        # print(f"[ #RESULT ] : {foc}% - [ #Time ] : {seconds}")
+        # print(f"{seconds} : {focus_counter / fps * 100}%")
+        pre['minutes'].append(focus_counter / (60 * fps))
+        with open("JSON/include_predictions.json", "w") as write_file:
             json.dump(pre, write_file, indent=4)
         focus_counter = 0
-        seconds += 1
+        minutes += 1
+        
     curr_frame += 1
     for face in faces:
         face_detected = True
@@ -256,15 +292,15 @@ while True:
     if not face_detected:
         for feature in features:
             data[feature] = 0
-    with open( "csv/data.csv", 'w', newline='') as output_file:
+    with open( "csv/include_data.csv", 'w', newline='') as output_file:
         thewriter = csv.DictWriter(output_file, fieldnames=features, quoting=csv.QUOTE_NONE, escapechar=' ')
         thewriter.writeheader()
         thewriter.writerow(data)
     #Loading the modle
-    pkl_filename = "models/model_v6.032c.pkl"
+    pkl_filename = "models/include_model_v6.032c.pkl"
     with open(pkl_filename, 'rb') as file:
         pickle_model = pickle.load(file)
-    test_frame = pd.read_csv("csv/data.csv")
+    test_frame = pd.read_csv("csv/include_data.csv")
     Xtest = test_frame[features]
     Ypredict = pickle_model.predict(Xtest)
     if Ypredict == [1]:
@@ -272,10 +308,11 @@ while True:
         cv2.rectangle(frame, (0, 0), (frame.shape[1], frame.shape[0]), (0, 255, 0), 2)
     else:
         cv2.rectangle(frame, (0, 0), (frame.shape[1], frame.shape[0]), (0, 0, 255), 2)
-    pre['frame'].append({curr_frame:int(Ypredict[0])})
-    with open("JSON/predictions.json", "w") as write_file:
+    pre['frame'].append(int(Ypredict[0]))
+    with open("JSON/include_predictions.json", "w") as write_file:
         json.dump(pre, write_file, indent=4)
-    print(time)
+    
+    # print(time)
     cv2.imshow("frame", frame)
     key = cv2.waitKey(1)
     if key == 27:
