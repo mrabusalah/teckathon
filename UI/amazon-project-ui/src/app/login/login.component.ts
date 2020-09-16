@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   password: string;
   alertType = "alert-primary";
   alertTitle = "INFO ! ";
-  alertContent = "username : mrabusalah / password : root";
+  alertContent = "username : mrabusalah / password : hi";
 
   constructor(private userService: UserService,
               private route: ActivatedRoute,
